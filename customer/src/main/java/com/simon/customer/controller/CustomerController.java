@@ -19,7 +19,7 @@ public class CustomerController {
         this.customerService = customerService;
     }
     @PostMapping
-    public void registerCustomer(@RequestBody CustomerRegistrationRequest customerRegistrationRequestRequest){
+    public void registerCustomer(@RequestBody CustomerRegistrationRequest customerRegistrationRequestRequest) throws IllegalAccessException {
         log.info("new customer registration {}", customerRegistrationRequestRequest);
         customerService.registerCustomer(customerRegistrationRequestRequest);
     }

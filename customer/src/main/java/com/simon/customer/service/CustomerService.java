@@ -27,9 +27,9 @@ public class CustomerService{
         //todo: check if email not taken
         customerRepository.saveAndFlush(customer); //makes it avaible because run async but in orrder
 
-        //todo: check if fraudster
+        //todo: check if fraudster using rest template , and add eureka url
         FraudCheckResponse fraudCheckResponse = restTemplate.getForObject(
-                "http://localhost:8081/api/v1/fraud-check/{customerId}",
+                "http://FRAUD/api/v1/fraud-check/{customerId}",
                 FraudCheckResponse.class,
                 customer.getId()
         );

@@ -2,22 +2,25 @@ package com.simon.customer.service;
 
 import com.simon.clients.fraud.FraudCheckResponse;
 import com.simon.clients.fraud.FraudClient;
+import com.simon.clients.notification.NotificationClient;
+import com.simon.clients.notification.NotificationRequest;
 import com.simon.customer.model.Customer;
 import com.simon.customer.model.CustomerRegistrationRequest;
 import com.simon.customer.repo.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import com.simon.clients.notification.NotificationClient;
 
 @Service
 public class CustomerService{
-    private final RestTemplate restTemplate;
+    private final NotificationClient notificationClient;
     private final CustomerRepository customerRepository;
 
     private final FraudClient fraudClient;
     @Autowired
-    CustomerService(FraudClient fraudClient, RestTemplate restTemplate, CustomerRepository customerRepository){
-        this.restTemplate = restTemplate;
+    CustomerService(FraudClient fraudClient, NotificationClient notificationClient, CustomerRepository customerRepository){
+        this.notificationClient = notificationClient;
         this.customerRepository = customerRepository;
         this.fraudClient = fraudClient;
     }
@@ -40,6 +43,13 @@ public class CustomerService{
         //customerRepository.save(customer);
 
         //todo: send notification
+        notificationClient.sendNotification(
+                new NotificationRequest(
+                        customer.getId(),
+                        customer.getEmail(),
+                        String.format("hi %s, welcome", customer.getFirstName())
+                )
+        );
     }
 }
 

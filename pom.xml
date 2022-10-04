@@ -12,7 +12,11 @@
     <module>customer</module>
     <module>fraud</module>
     <module>eureka-server</module>
+<<<<<<< Updated upstream
     <module>clients</module>
+=======
+    <module>notification</module>
+>>>>>>> Stashed changes
   </modules>
 
   <name>simonfraudservice</name>

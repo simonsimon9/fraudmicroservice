@@ -1,4 +1,5 @@
-package com.simon.customer.model;
+package com.simon.clients.fraud;
 
 public record FraudCheckResponse(Boolean isFraudster) {
+
 }

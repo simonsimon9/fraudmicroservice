@@ -1,6 +1,6 @@
 package com.simon.fraud.controller;
 
-import com.simon.fraud.model.FraudCheckResponse;
+import com.simon.clients.fraud.FraudCheckResponse;
 import com.simon.fraud.service.FraudCheckService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

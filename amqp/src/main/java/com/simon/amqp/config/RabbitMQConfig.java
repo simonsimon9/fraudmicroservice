@@ -14,6 +14,8 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 @AllArgsConstructor
 public class RabbitMQConfig {
     private final ConnectionFactory connectionFactory;
+
+    @Bean
     public AmqpTemplate amqpTemplate(){
         RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
 

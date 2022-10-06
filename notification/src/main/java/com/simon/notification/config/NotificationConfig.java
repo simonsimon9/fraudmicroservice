@@ -13,7 +13,7 @@ public class NotificationConfig {
     @Value("${rabbitmq.exchanges.internal}")
     private String internalExchange;
 
-    @Value("${rabbitmq.queues.notification}")
+    @Value("${rabbitmq.queue.notification}")
     private String notificationQueue;
 
     @Value("${rabbitmq.routing-keys.internal-notification}")

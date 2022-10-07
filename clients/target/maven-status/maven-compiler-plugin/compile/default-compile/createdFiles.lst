@@ -1,0 +1,4 @@
+com/simon/clients/notification/NotificationRequest.class
+com/simon/clients/fraud/FraudCheckResponse.class
+com/simon/clients/fraud/FraudClient.class
+com/simon/clients/notification/NotificationClient.class

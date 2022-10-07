@@ -18,9 +18,19 @@ spring:
     show-sql: true
   zipkin:
     base-url: http://localhost:9411
+  rabbitmq:
+    addresses: localhost:5672 #found in docker compose
+
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
     fetch-registry: true #default is true
     register-with-eureka: true #default is true
+rabbitmq:
+  exchanges:
+    internal: internal.exchange  #which exchange/name
+  queue:
+    notification: notification.queue  #which key that is binded with exchange want to send
+  routing-keys:
+    internal-notification: internal.notification.routing-key  #tying the exchange with queue with binding

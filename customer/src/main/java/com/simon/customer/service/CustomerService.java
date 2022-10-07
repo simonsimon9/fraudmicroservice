@@ -1,5 +1,6 @@
 package com.simon.customer.service;
 
+import com.simon.amqp.RabbitMQMessageProducer;
 import com.simon.clients.fraud.FraudCheckResponse;
 import com.simon.clients.fraud.FraudClient;
 import com.simon.clients.notification.NotificationClient;
@@ -14,15 +15,16 @@ import com.simon.clients.notification.NotificationClient;
 
 @Service
 public class CustomerService{
-    private final NotificationClient notificationClient;
     private final CustomerRepository customerRepository;
 
     private final FraudClient fraudClient;
+
+    private final RabbitMQMessageProducer rabbitMQMessageProducer;
     @Autowired
-    CustomerService(FraudClient fraudClient, NotificationClient notificationClient, CustomerRepository customerRepository){
-        this.notificationClient = notificationClient;
+    CustomerService(FraudClient fraudClient,CustomerRepository customerRepository, RabbitMQMessageProducer rabbitMQMessageProducer){
         this.customerRepository = customerRepository;
         this.fraudClient = fraudClient;
+        this.rabbitMQMessageProducer = rabbitMQMessageProducer;
     }
     public void registerCustomer(CustomerRegistrationRequest request) throws IllegalAccessException {
         Customer customer = Customer.builder()
@@ -41,14 +43,18 @@ public class CustomerService{
         }
         //////no//todo: save to repo
         //customerRepository.save(customer);
+        NotificationRequest notificationRequest = new NotificationRequest(
+                     customer.getId(),
+                     customer.getEmail(),
+                    String.format("hi %s, welcome", customer.getFirstName())
+              );
+
 
         //todo: send notification
-        notificationClient.sendNotification(
-                new NotificationRequest(
-                        customer.getId(),
-                        customer.getEmail(),
-                        String.format("hi %s, welcome", customer.getFirstName())
-                )
+        rabbitMQMessageProducer.publish(
+                notificationRequest,
+                "internal.exchange",
+                "internal.notification.routing-key"
         );
     }
 }

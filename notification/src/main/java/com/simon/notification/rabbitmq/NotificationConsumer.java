@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class NotificationConsumer {
     private final NotificationService notificationService;
-
+    //this can take as long as it wants.
     @RabbitListener(queues = "${rabbitmq.queue.notification}")
     public void consumer(NotificationRequest notificationRequest){
         log.info("Consumed {} from queue", notificationRequest);

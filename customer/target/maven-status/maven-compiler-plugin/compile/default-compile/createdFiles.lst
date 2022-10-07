@@ -1,8 +1,0 @@
-com/simon/customer/service/CustomerService.class
-com/simon/customer/model/CustomerRegistrationRequest.class
-com/simon/customer/model/Customer.class
-com/simon/customer/repo/CustomerRepository.class
-com/simon/customer/model/Customer$CustomerBuilder.class
-com/simon/customer/CustomerApplication.class
-com/simon/customer/config/CustomerConfig.class
-com/simon/customer/controller/CustomerController.class

@@ -1,8 +1,0 @@
-com/simon/notification/model/Notification$NotificationBuilder.class
-com/simon/notification/model/Notification.class
-com/simon/notification/rabbitmq/NotificationConsumer.class
-com/simon/notification/repository/NotificationRepository.class
-com/simon/notification/NotificationApplication.class
-com/simon/notification/config/NotificationConfig.class
-com/simon/notification/service/NotificationService.class
-com/simon/notification/controller/NotificationController.class

@@ -1,0 +1,6 @@
+com/simon/fraud/repository/FraudCheckHistoryRepository.class
+com/simon/fraud/FraudApplication.class
+com/simon/fraud/controller/FraudController.class
+com/simon/fraud/service/FraudCheckService.class
+com/simon/fraud/model/FraudCheckHistory.class
+com/simon/fraud/model/FraudCheckHistory$FraudCheckHistoryBuilder.class

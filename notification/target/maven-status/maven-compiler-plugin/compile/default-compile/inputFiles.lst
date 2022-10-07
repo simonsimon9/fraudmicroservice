@@ -1,0 +1,7 @@
+/Users/simon/realcode/simonfraudservice/notification/src/main/java/com/simon/notification/repository/NotificationRepository.java
+/Users/simon/realcode/simonfraudservice/notification/src/main/java/com/simon/notification/NotificationApplication.java
+/Users/simon/realcode/simonfraudservice/notification/src/main/java/com/simon/notification/service/NotificationService.java
+/Users/simon/realcode/simonfraudservice/notification/src/main/java/com/simon/notification/config/NotificationConfig.java
+/Users/simon/realcode/simonfraudservice/notification/src/main/java/com/simon/notification/rabbitmq/NotificationConsumer.java
+/Users/simon/realcode/simonfraudservice/notification/src/main/java/com/simon/notification/model/Notification.java
+/Users/simon/realcode/simonfraudservice/notification/src/main/java/com/simon/notification/controller/NotificationController.java
